@@ -19,3 +19,4 @@ export const loadCartData =()=>(dispatch)=>{
 export const clearCartData =()=>(dispatch)=>{
     dispatch({ type: CLEAR_CART_DATA  });
 }
+

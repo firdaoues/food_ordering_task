@@ -24,19 +24,27 @@ const onRemoveProductToCart=()=>{
   const pricef = (productData.price / 100);
 
   return (
-    <div className='border rounded-lg border-gray-300 mg-10px pb-8 space-x-4  flex justify-between mt-5 pt-6 ml-20 mr-5 font-sans'>
-      <div>
-     <p className="text-lg ml-8 font-serif  " >{productData.name}</p> 
-     <p className=" text-base ml-8 font-serif text-slate-400" >{productData.description}</p>
-     <p className="text-lg ml-8 font-serif   " >{pricef}€</p>
-     </div>
-     <div className='relative flex flex-row  pt-4'>
-      <button className='border rounded-full border-none  text-2xl bg-slate-100 pt-0 pr-2  pl-2' disabled={!isRemoveDisabled}   onClick={onRemoveProductToCart} >-</button>
-      <p className='text-black  pt-0 pr-2  pl-2'> {productInCart ? productInCart.quantity : 0}</p>
-      <button className='border rounded-full border-none  text-2xl bg-slate-100 pt-0 pr-2  pl-2' onClick={onAddProductToCart}>+</button>
-      </div>
+    
+    <div className='border rounded-lg w-4/5  border-gray-300 mg-10px pb-2 space-x-4  max-h-30  mt-5 pt-4  ml-auto mr-auto '>
+      <div className=" ">
       
-    </div>
+      <p className="text-lg capitalize ml-4 font-nunito  font-bold w-48  " >{productData.name}</p> 
+      
+      <div className='relative flex flex-row  justify-end pr-2   '>
+     {(productInCart && productInCart.quantity > 0) &&  <button className=' border rounded-full border-none  text-base font-nunito  bg-gray-200  pr-2  pl-2 ' disabled={!isRemoveDisabled}   onClick={onRemoveProductToCart} >-</button>}
+      <p className='text-black font-nunito   pr-2  pl-2'> {productInCart ? productInCart.quantity : ""}</p>
+      <button className='border rounded-full border-none font-nunito   text-base bg-gray-200  pr-2  pl-2' onClick={onAddProductToCart}>+</button>
+      </div>
+      </div>
+    
+
+      <div>
+     <p className=" text-sm  font-normal font-nunito text-gray-400" >{productData.description}</p>
+     <p className="text-sm  font-nunito font-bold   " >{pricef}€</p>
+     </div>
+     </div>
+      
+  
    
   );
 };

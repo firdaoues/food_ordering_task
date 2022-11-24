@@ -1,26 +1,44 @@
-import React from 'react';
-import {  useSelector } from 'react-redux';
-import ProductItem from './ProductItem';
-
-// import {changeVendorMenu} from '../../actions/vendor'
-
-
-
-const Products = (props)=>{
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ProductItem from "./ProductItem";
+import { InView } from "react-intersection-observer";
+import { onScrollOrder } from "../../actions/vendor";
 
 
-// const {name,productIds} = props
-const  {products,categoryData}  = useSelector((state) => state.vendor);
 
-return(
-    <div className=' mg-8 border-slate-300'>
-        <div className='hero container max-w-screen-lg mx-auto pb-10 '>
-        <img className='object-center object-cover border rounded-lg h-40 w-full  mt-5  ' src={categoryData.imageUrl} />    
+const Products = (props) => {
+  const dispatch = useDispatch();
 
+  const { products, categoryData, isScrollValid } = useSelector(
+    (state) => state.vendor
+  );
+
+  const onScrollChange = (scrollValue) => {
+    if (isScrollValid !== scrollValue) {
+      dispatch(onScrollOrder(scrollValue));
+    }
+  };
+
+  return (
+    <div className=" bg-neutral-50  pt-5">
+      <div className="border-slate-300  mr-5 ">
+        <div className=" container max-w-screen-lg mx-auto pb-10 ">
+          <img
+            className="object-cover border rounded-lg h-40  ml-auto mr-auto "
+            src={categoryData.imageUrl}
+          />
         </div>
-        <h2 className='capitalize ml-8 font-serif text-2xl'>{categoryData.name}</h2>
-    {products.map(product => <ProductItem productData={product} key={product.id} />)}
+
+        <h2 className="capitalize font-nunito text-2xl ml-20 ">
+          {categoryData.name}
+        </h2>
+        <InView onChange={onScrollChange}>
+          {products.map((product) => (
+            <ProductItem productData={product} key={product.id} />
+          ))}
+        </InView>
+      </div>
     </div>
-)
-}
-export default Products
+  );
+};
+export default Products;
