@@ -26,7 +26,8 @@ const Cart = () => {
     dispatch(clearCartData());
   };
   return (
-    <div className="w-56 absolute text-base    font-nunito text-xs  h-full    border-l shadow-gray-500   divide-y divide-slate-200 ">
+    
+    <div className="w-56 absolute text-base    font-nunito text-xs  h-full    border-l shadow-gray-500    divide-y divide-slate-200 ">
       {cartData.map((item, i) => (
         <div className="flex flex-row  " key={i}>
           <div className="mt-5">

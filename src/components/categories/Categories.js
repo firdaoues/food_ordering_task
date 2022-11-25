@@ -48,11 +48,15 @@ const Categories = (props) => {
   };
 
   return (
-    <div className="flex justify-center ml-20">
+    <div className="flex justify-center ml-20 ">
       {/* <div className="flex justify-start flex-wrap whitespace-nowrap no-scrollbar pt-6 pb-8 border-b  border-gray-200  font-Nunito font-medium text-base  ml-20"> */}
       {scrollX !== 0 && (
-          <button className="hidden lg:block border rounded-full border-none   text-base bg-gray-200 pt-0 pr-2 pl-2" onClick={() => scroll(-50)}>
-           X
+          <button className="  " onClick={() => scroll(-50)}>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 hidden lg:block border rounded-full border-none  bg-gray-200 inline-block h-8 w-8 pr-2  ">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+</svg>
+
           </button>
         )}
       <div
@@ -82,12 +86,16 @@ const Categories = (props) => {
         <button
           onClick={() => scroll(50)}
           
-          className="hidden lg:block border rounded-full border-none   text-base bg-gray-200 pt-0 pr-2 pl-2"
+          className=""
         >
           {" "}
-          X
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 hidden lg:block border rounded-full border-none  bg-gray-200 inline-block h-8 w-8 pl-2 ">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+</svg>
+
         </button>
       )}
+     
     </div>
   );
 };
