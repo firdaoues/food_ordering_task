@@ -119,16 +119,16 @@ const Vendor = () => {
           {/* Products */}
           <div
             className={`${
-              isScrollValid ? "h-[53vh]" : "h-[38vh]"
-            } sm:h-[50vh] lg:h-[50vh] overflow-auto  content-center`}
+              isScrollValid ? "h-[52vh] sm:h-[62vh]" : "h-[37vh] sm:h-[50vh]"
+            }   overflow-auto  content-center`}
           >
             <Popular popularProducts={popularProducts} />
             {products ? <Products /> : ""}
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center bg-neutral-50">
             <button
               onClick={onClickCheckOut}
-              className="  bg-orange-500 h-10  w-60 rounded-lg text-white mb-10 center sm:hidden"
+              className="  bg-orange-500 h-10  w-60 rounded-lg text-white  center sm:hidden"
               disabled={totalOrderPrice < minOrderValue}
             >
               Checkout ({totalOrderPrice.toFixed(2)} €)

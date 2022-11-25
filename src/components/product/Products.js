@@ -22,9 +22,9 @@ const Products = (props) => {
   return (
     <div className=" bg-neutral-50  pt-5">
       <div className="border-slate-300  mr-5 ">
-        <div className=" container max-w-screen-lg mx-auto pb-10 ">
+        <div className=" container max-w-screen-sm mx-auto pb-10 ">
           <img
-            className="object-cover border rounded-lg h-40  ml-auto mr-auto "
+            className="object-cover border rounded-lg h24 w-80 sm:w-fit sm:h-40  ml-auto mr-auto "
             src={categoryData.imageUrl}
           />
         </div>
